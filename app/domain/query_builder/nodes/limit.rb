@@ -1,6 +1,6 @@
 module QueryBuilder
-  module Clauses
-    class Limit < QueryBuilder::Clauses::Base
+  module Nodes
+    class Limit < QueryBuilder::Nodes::Base
       param :numeric
 
       def accept(state)

@@ -4,7 +4,7 @@ module QueryBuilder
       private
 
       def base_node_class
-        QueryBuilder::Clauses::Wheres::Base
+        QueryBuilder::Nodes::Wheres::Base
       end
 
       def reduce(&block)

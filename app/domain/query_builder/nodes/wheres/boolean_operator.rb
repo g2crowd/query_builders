@@ -1,5 +1,5 @@
 module QueryBuilder
-  module Clauses
+  module Nodes
     module Wheres
       module BooleanOperator
         class Builder < QueryBuilder::Builders::Wheres

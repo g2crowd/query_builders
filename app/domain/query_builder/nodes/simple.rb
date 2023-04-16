@@ -1,5 +1,5 @@
 module QueryBuilder
-  module Clauses
+  module Nodes
     module Simple
       def clause
         raise NotImplementedError

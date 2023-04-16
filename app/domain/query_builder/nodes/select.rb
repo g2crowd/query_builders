@@ -1,7 +1,7 @@
 module QueryBuilder
-  module Clauses
-    class Select < ::QueryBuilder::Clauses::Base
-      include QueryBuilder::Clauses::Simple
+  module Nodes
+    class Select < ::QueryBuilder::Nodes::Base
+      include QueryBuilder::Nodes::Simple
 
       param :relation
       param :columns

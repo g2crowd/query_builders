@@ -1,5 +1,5 @@
 module QueryBuilder
-  module Clauses
+  module Nodes
     class Base
       extend Dry::Initializer
 

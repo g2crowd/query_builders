@@ -20,15 +20,15 @@ module Queries
     end
 
     def wheres_operator(operator, *clauses)
-      "QueryBuilder::Clauses::Wheres::#{operator.to_s.camelize}".constantize.new(*clauses)
+      "QueryBuilder::Nodes::Wheres::#{operator.to_s.camelize}".constantize.new(*clauses)
     end
 
     def left_outer_join(model, table_name)
-      QueryBuilder::Clauses::Joins::LeftOuterJoin.new(model, table_name)
+      QueryBuilder::Nodes::Joins::LeftOuterJoin.new(model, table_name)
     end
 
     def inner_join(model, table_name)
-      QueryBuilder::Clauses::Joins::InnerJoin.new(model, table_name)
+      QueryBuilder::Nodes::Joins::InnerJoin.new(model, table_name)
     end
   end
 end

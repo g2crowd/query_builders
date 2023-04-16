@@ -1,8 +1,8 @@
 module QueryBuilder
-  module Clauses
+  module Nodes
     module Wheres
-      class And < QueryBuilder::Clauses::Wheres::Base
-        include QueryBuilder::Clauses::Wheres::BooleanOperator
+      class And < QueryBuilder::Nodes::Wheres::Base
+        include QueryBuilder::Nodes::Wheres::BooleanOperator
 
         # rubocop:disable Lint/MissingSuper
         def initialize(*child_nodes)

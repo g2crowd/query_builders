@@ -1,8 +1,8 @@
 module QueryBuilder
-  module Clauses
+  module Nodes
     module Joins
-      class LeftOuterJoin < QueryBuilder::Clauses::Base
-        include QueryBuilder::Clauses::Simple
+      class LeftOuterJoin < QueryBuilder::Nodes::Base
+        include QueryBuilder::Nodes::Simple
 
         param :table1
         param :table2

@@ -1,7 +1,7 @@
 module QueryBuilder
-  module Clauses
+  module Nodes
     module Wheres
-      class Not < ::QueryBuilder::Clauses::Wheres::Base
+      class Not < ::QueryBuilder::Nodes::Wheres::Base
         param :nested
 
         delegate :valid?, to: :nested

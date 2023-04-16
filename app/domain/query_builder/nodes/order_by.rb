@@ -1,6 +1,6 @@
 module QueryBuilder
-  module Clauses
-    class OrderBy < QueryBuilder::Clauses::Base
+  module Nodes
+    class OrderBy < QueryBuilder::Nodes::Base
       param :sort
 
       def accept(state)
