@@ -26,4 +26,7 @@
 #  updated_at   :datetime         not null
 #
 class Character < ApplicationRecord
+
+  has_many :characters_spells
+  has_many :spells, through: :characters_spells
 end

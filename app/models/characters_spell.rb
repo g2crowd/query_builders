@@ -10,4 +10,7 @@
 #
 class CharactersSpell < ApplicationRecord
   self.table_name = 'characters_spells'
+
+  belongs_to :character
+  belongs_to :spell
 end
