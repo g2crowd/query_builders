@@ -1,7 +1,7 @@
 module QueryBuilder
   module Spells
-    module Clauses
-      class LevelIn < QueryBuilder::Clauses::Wheres::Base
+    module Nodes
+      class LevelIn < QueryBuilder::Nodes::Wheres::Base
         param :levels
 
         def clause

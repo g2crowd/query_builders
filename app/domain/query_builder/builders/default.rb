@@ -10,7 +10,7 @@ module QueryBuilder
       end
 
       def base_node_class
-        ::QueryBuilder::Clauses::Base
+        ::QueryBuilder::Nodes::Base
       end
 
       def visit(state, node)

@@ -1,8 +1,8 @@
 module QueryBuilder
-  module Clauses
+  module Nodes
     module Wheres
-      class Or < QueryBuilder::Clauses::Wheres::Base
-        include QueryBuilder::Clauses::Wheres::BooleanOperator
+      class Or < QueryBuilder::Nodes::Wheres::Base
+        include QueryBuilder::Nodes::Wheres::BooleanOperator
 
         def initialize(*child_nodes)
           @builder = Builder.new(operator: :or).add(*child_nodes)

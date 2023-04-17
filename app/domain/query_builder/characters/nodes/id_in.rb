@@ -1,7 +1,7 @@
 module QueryBuilder
   module Characters
-    module Clauses
-      class IdIn < QueryBuilder::Clauses::Wheres::Base
+    module Nodes
+      class IdIn < QueryBuilder::Nodes::Wheres::Base
         param :ids
 
         def clause

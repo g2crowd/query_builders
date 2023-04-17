@@ -6,17 +6,17 @@ module Queries
 
       def apply
         builder
-          .add(QueryBuilder::Clauses::Joins::InnerJoin.new(initial_state, :spells))
+          .add(QueryBuilder::Nodes::Joins::InnerJoin.new(initial_state, :spells))
           .add(wheres_operator(:and, *and_filters))
-          .add(QueryBuilder::Clauses::Limit.new(limit))
+          .add(QueryBuilder::Nodes::Limit.new(limit))
       end
 
       private
 
       def and_filters
         [
-          QueryBuilder::Characters::Clauses::IdIn.new(filters[:ids]),
-          QueryBuilder::Spells::Clauses::LevelIn.new(spell_filters[:levels])
+          QueryBuilder::Characters::Nodes::IdIn.new(filters[:ids]),
+          QueryBuilder::Spells::Nodes::LevelIn.new(spell_filters[:levels])
         ]
       end
 

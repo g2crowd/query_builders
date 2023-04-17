@@ -1,8 +1,8 @@
 module QueryBuilder
-  module Clauses
+  module Nodes
     module Joins
-      class Includes < QueryBuilder::Clauses::Base
-        include QueryBuilder::Clauses::Simple
+      class Includes < QueryBuilder::Nodes::Base
+        include QueryBuilder::Nodes::Simple
 
         param :table1
         param :table2
