@@ -1,0 +1,53 @@
+module Queries
+  module Characters
+    class IndexQuery < Queries::Base
+
+      option :filters, type: ::Types::Hash.constructor(&:to_h), default: proc { {} }
+      option :limit, type: ::Types::Integer, default: proc { 50 }
+      option :order_by, type: ::Types::String, default: proc { 'name ASC' }
+
+      def apply
+        apply_joins
+        builder
+          .add(wheres_operator(:and, *and_filters))
+          .add(QueryBuilder::Nodes::OrderBy.new(order_by))
+          .add(QueryBuilder::Nodes::Limit.new(limit))
+      end
+
+      private
+
+      def and_filters
+        [
+          QueryBuilder::Characters::Nodes::IdIn.new(filters[:ids]),
+          QueryBuilder::Spells::Nodes::LevelIn.new(spells_filters[:levels]),
+          QueryBuilder::Spells::Nodes::NameIn.new(spells_filters[:names]),
+          QueryBuilder::Flaws::Nodes::NameIn.new(flaws_filters[:names]),
+          QueryBuilder::Virtues::Nodes::NameIn.new(virtues_filters[:names]),
+          QueryBuilder::Feats::Nodes::NameIn.new(feats_filters[:names]),
+          QueryBuilder::Specializations::Nodes::NameIn.new(specializations_filters[:names]),
+          QueryBuilder::Characters::Nodes::Legendary.new(filters[:legendary])
+        ]
+      end
+
+      def spells_filters
+        filters[:spells] || {}
+      end
+
+      def flaws_filters
+        filters[:flaws] || {}
+      end
+
+      def virtues_filters
+        filters[:virtues] || {}
+      end
+
+      def feats_filters
+        filters[:feats] || {}
+      end
+
+      def specializations_filters
+        filters[:specializations] || {}
+      end
+    end
+  end
+end

@@ -14,4 +14,7 @@
 #  updated_at     :datetime         not null
 #
 class Player < ApplicationRecord
+  has_many :characters
+  has_many :campaigns_players
+  has_many :campaigns, through: :campaigns_players
 end

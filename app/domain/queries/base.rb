@@ -1,6 +1,8 @@
 module Queries
   class Base
     extend Dry::Initializer
+    include Queries::Helpers::Joins::Filter
+    include Queries::Helpers::Wheres
 
     option :builder, default: proc { ::QueryBuilder::Builders::Default.new(initial_state: initial_state) }
 
@@ -17,10 +19,6 @@ module Queries
 
     def apply
       raise NotImplementedError
-    end
-
-    def wheres_operator(operator, *clauses)
-      "QueryBuilder::Nodes::Wheres::#{operator.to_s.camelize}".constantize.new(*clauses)
     end
 
     def left_outer_join(model, table_name)

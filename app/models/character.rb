@@ -26,7 +26,21 @@
 #  updated_at   :datetime         not null
 #
 class Character < ApplicationRecord
-
+  belongs_to :campaign, dependent: :destroy
+  belongs_to :players, dependent: :destroy
   has_many :characters_spells
   has_many :spells, through: :characters_spells
+  has_many :characters_feats
+  has_many :feats, through: :characters_feats
+  has_many :characters_flaws
+  has_many :flaws, through: :characters_flaws
+  has_many :characters_virtues
+  has_many :virtues, through: :characters_virtues
+  has_many :characters_skills
+  has_many :skills, through: :characters_skills
+  has_many :characters_specializations
+  has_many :specializations, through: :characters_specializations
+  has_one :inventory
+  has_many :inventories_items, through: :inventory
+  has_many :items, through: :inventories_items
 end

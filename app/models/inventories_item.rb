@@ -16,4 +16,7 @@
 #
 class InventoriesItem < ApplicationRecord
   self.table_name = 'inventories_items'
+
+  belongs_to :inventory
+  belongs_to :item
 end
