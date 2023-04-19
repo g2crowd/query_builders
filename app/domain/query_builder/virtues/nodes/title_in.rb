@@ -1,15 +1,15 @@
 module QueryBuilder
   module Virtues
     module Nodes
-      class NameIn < QueryBuilder::Nodes::Wheres::Base
-        param :names
+      class TitleIn < QueryBuilder::Nodes::Wheres::Base
+        param :titles
 
         def clause
-          Virtue.where(name: names)
+          Virtue.where(title: titles)
         end
 
         def valid?
-          names.present?
+          titles.present?
         end
       end
     end

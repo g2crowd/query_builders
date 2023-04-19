@@ -26,8 +26,8 @@
 #  updated_at   :datetime         not null
 #
 class Character < ApplicationRecord
-  belongs_to :campaign, dependent: :destroy
-  belongs_to :players, dependent: :destroy
+  belongs_to :campaign, dependent: :destroy, optional: true
+  belongs_to :players, dependent: :destroy, optional: true
   has_many :characters_spells
   has_many :spells, through: :characters_spells
   has_many :characters_feats

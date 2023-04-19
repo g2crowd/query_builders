@@ -21,8 +21,8 @@ module Queries
           QueryBuilder::Characters::Nodes::IdIn.new(filters[:ids]),
           QueryBuilder::Spells::Nodes::LevelIn.new(spells_filters[:levels]),
           QueryBuilder::Spells::Nodes::NameIn.new(spells_filters[:names]),
-          QueryBuilder::Flaws::Nodes::NameIn.new(flaws_filters[:names]),
-          QueryBuilder::Virtues::Nodes::NameIn.new(virtues_filters[:names]),
+          QueryBuilder::Flaws::Nodes::TitleIn.new(flaws_filters[:titles]),
+          QueryBuilder::Virtues::Nodes::TitleIn.new(virtues_filters[:titles]),
           QueryBuilder::Feats::Nodes::NameIn.new(feats_filters[:names]),
           QueryBuilder::Specializations::Nodes::NameIn.new(specializations_filters[:names]),
           QueryBuilder::Characters::Nodes::Legendary.new(filters[:legendary])

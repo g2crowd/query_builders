@@ -34,7 +34,7 @@ module Queries
       end
 
       def time_window
-        { started_at_lteq: filters[:started_at_lteq], started_at_gteq: filters[:started_at_gteq] }
+        { start_date_lteq: filters[:start_date_lteq], start_date_gteq: filters[:start_date_gteq] }
       end
     end
   end

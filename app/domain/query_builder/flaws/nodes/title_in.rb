@@ -1,15 +1,15 @@
 module QueryBuilder
   module Flaws
     module Nodes
-      class NameIn < QueryBuilder::Nodes::Wheres::Base
-        param :names
+      class TitleIn < QueryBuilder::Nodes::Wheres::Base
+        param :titles
 
         def clause
-          Flaw.where(name: names)
+          Flaw.where(title: titles)
         end
 
         def valid?
-          names.present?
+          titles.present?
         end
       end
     end
