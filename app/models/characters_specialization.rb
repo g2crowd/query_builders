@@ -11,4 +11,7 @@
 #
 class CharactersSpecialization < ApplicationRecord
   self.table_name = 'characters_specializations'
+
+  belongs_to :character
+  belongs_to :specialization
 end

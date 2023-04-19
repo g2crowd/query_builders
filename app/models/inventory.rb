@@ -16,4 +16,6 @@
 #
 class Inventory < ApplicationRecord
   self.table_name = 'inventories'
+
+  has_many :inventories_items
 end

@@ -10,4 +10,5 @@
 #  updated_at  :datetime         not null
 #
 class Campaign < ApplicationRecord
+  has_many :characters
 end

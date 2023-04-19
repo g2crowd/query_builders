@@ -11,4 +11,6 @@
 #  updated_at    :datetime         not null
 #
 class CharactersFeat < ApplicationRecord
+  belongs_to :character
+  belongs_to :feat
 end

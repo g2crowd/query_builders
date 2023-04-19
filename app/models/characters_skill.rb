@@ -12,4 +12,6 @@
 #  updated_at    :datetime         not null
 #
 class CharactersSkill < ApplicationRecord
+  belongs_to :character
+  belongs_to :skill
 end

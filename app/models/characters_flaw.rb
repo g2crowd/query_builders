@@ -12,4 +12,6 @@
 #  updated_at    :datetime         not null
 #
 class CharactersFlaw < ApplicationRecord
+  belongs_to :character
+  belongs_to :flaw
 end
