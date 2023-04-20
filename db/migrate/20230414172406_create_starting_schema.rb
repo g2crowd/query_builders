@@ -6,7 +6,7 @@ class CreateStartingSchema < ActiveRecord::Migration[7.0]
       t.datetime 'start_date', precision: 6, null: false
       t.datetime 'created_at', precision: 6, null: false
       t.datetime 'updated_at', precision: 6, null: false
-      t.index 'title', unique: true
+      t.index 'title'
     end
 
     create_table 'players', force: :cascade do |t|

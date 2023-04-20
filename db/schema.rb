@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_14_172406) do
     t.datetime "start_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["title"], name: "index_campaigns_on_title", unique: true
+    t.index ["title"], name: "index_campaigns_on_title"
   end
 
   create_table "campaigns_players", force: :cascade do |t|

@@ -2,15 +2,15 @@ module QueryBuilder
   module Campaigns
     module Nodes
       class TimeWindow < QueryBuilder::Nodes::Wheres::Base
-        option :started_at_lteq, proc(&:presence)
-        option :started_at_gteq, proc(&:presence)
+        option :start_date_lteq, proc(&:presence)
+        option :start_date_gteq, proc(&:presence)
 
         def clause
-          Campaign.where(started_at: started_at_gteq..stated_at_lteq)
+          Campaign.where(start_date: start_date_gteq..start_date_lteq)
         end
 
         def valid?
-          started_at_gteq.present? || started_at_lteq.present?
+          start_date_gteq.present? || start_date_lteq.present?
         end
       end
     end
