@@ -5,6 +5,7 @@ module Queries
     include Queries::Helpers::Wheres
 
     option :builder, default: proc { ::QueryBuilder::Builders::Default.new(initial_state: initial_state) }
+    option :filters, type: ::Types::Hash.constructor(&:to_h), default: proc { {} }
 
     def call
       apply
@@ -14,7 +15,7 @@ module Queries
     private
 
     def initial_state
-      ::Character
+      raise NotImplementedError
     end
 
     def apply
