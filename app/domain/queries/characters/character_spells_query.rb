@@ -13,6 +13,10 @@ module Queries
 
       private
 
+      def initial_state
+        ::Character
+      end
+
       def and_filters
         [
           QueryBuilder::Characters::Nodes::IdIn.new(filters[:ids]),

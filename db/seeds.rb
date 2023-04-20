@@ -10,9 +10,9 @@ genders_proc = proc do
   (%w(male male male male female female female female) + [nil]).sample || Faker::Gender.type
 end
 
-500.times do
+100.times do
   Campaign.create do |c|
-    c.title = "#{Faker::Book.title}; call_sign #{SecureRandom.uuid}"
+    c.title = "#{Faker::Book.title}"
     c.description = Faker::Quote.fortune_cookie
     c.start_date = (rand * 1000).days.ago
   end
@@ -20,7 +20,7 @@ end
 
 campaign_ids = Campaign.all.pluck(:id)
 
-10000.times do
+500.times do
   Character.create do |c|
     c.campaign_id = campaign_ids.sample
     c.name = Faker::FunnyName.name
@@ -42,7 +42,6 @@ campaign_ids = Campaign.all.pluck(:id)
     end
   end
 end
-
 
 feat_name_proc = proc do
   adj = Faker::Adjective.positive
@@ -67,7 +66,7 @@ rescue ZeroDivisionError
 end
 
 flaw_proc = proc do
-  adj = Faker::Adjective.positive
+  adj = Faker::Adjective.negative
   attr = attributes.sample
   mod = modify_stat_proc.call(:-)
   { attr:, title: "#{adj} #{attr}", mod:}

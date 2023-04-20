@@ -1,10 +1,10 @@
 module Queries
   module Characters
     class IndexQuery < Queries::Base
-
-      option :filters, type: ::Types::Hash.constructor(&:to_h), default: proc { {} }
       option :limit, type: ::Types::Integer, default: proc { 50 }
       option :order_by, type: ::Types::String, default: proc { 'name ASC' }
+
+      private
 
       def apply
         apply_joins
@@ -14,11 +14,12 @@ module Queries
           .add(QueryBuilder::Nodes::Limit.new(limit))
       end
 
-      private
+      def initial_state
+        ::Character
+      end
 
       def and_filters
         [
-          QueryBuilder::Characters::Nodes::IdIn.new(filters[:ids]),
           QueryBuilder::Spells::Nodes::LevelIn.new(spells_filters[:levels]),
           QueryBuilder::Spells::Nodes::NameIn.new(spells_filters[:names]),
           QueryBuilder::Flaws::Nodes::TitleIn.new(flaws_filters[:titles]),
