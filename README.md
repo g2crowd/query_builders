@@ -1,7 +1,7 @@
 # README
 
 To use this repo:
-
+# test
 1. Fork your own copy of this repo and clone it. Change directories in your terminal to the project name. 
 2. Run `bundle install` in your terminal. (Note: Ruby and is a dependency. Make sure you have version 3.2.0 installed)
 3. Run `rails db:create` in your terminal to create your development and test database. 
